@@ -101,21 +101,7 @@ return;
 
 
 
-client.on('message', message => {
-    function resetBot(channel) {
-        // send channel a message that you're resetting bot [optional]
-        .then(msg => client.destroy())
-        .then(() => client.login(process.env.TOKEN));
-    }
-    if(message.content === adminprefix + "restart") {
-          if (!devs.includes(message.author.id)) return;
-              message.channel.send(`⚠️ **الشخص الذي اعاد تشغيل البوت ${message.author.username}**`);
-            console.log(`⚠️ جاري اعادة تشغيل البوت... ⚠️`);
-            resetBot(message.channel);
-            console.log(`تم اعادة تشغيل البوت`);
-        }
-      
-      });
+
 
 
 client.on("message", message => {
