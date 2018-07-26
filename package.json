@@ -38,5 +38,6 @@
    "youtube-info": "*",
   "simple-youtube-api": "*",
   "queue": "*",
-  "ffmpeg-binaries": "*"
+  "ffmpeg-binaries": "*",
+   "fs": "0.0.2" "*"
   }
