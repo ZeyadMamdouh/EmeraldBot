@@ -8453,7 +8453,7 @@ client.on("guildMemberAdd", member => {
       })
       })
       
-      }
+    
       });
 
 
