@@ -8571,7 +8571,7 @@ client.on('message', message => {
   if (!message.channel.guild) return;
   let args = message.content.split(" ").slice(1).join(' ');
 	  message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل الاداره`)
-  client.channels.get("ايدي الروم").send(
+  client.channels.get("471396001291173890").send(
       "\n" + "**" + "● السيرفر :" + "**" +
       "\n" + "**" + "» " + message.guild.name + "**" +
       "\n" + "**" + " ● المرسل : " + "**" +
