@@ -8014,7 +8014,7 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
 
 client.on("message", (message) => {
     if (message.content.startsWith("-kick")) {
-      if(!message.member.hasPermission('KICK_MEMBERS')) return message.reply('? ماعندك الصلاحيات');
+      if(!message.member.hasPermission('KICK_MEMBERS')) return message.reply(':warning: ماعندك الصلاحيات');
         var member= message.mentions.members.first();
         member.kick().then((member) => {
             message.channel.send(member.displayName + " مع السلامه :wave: ");
@@ -8037,7 +8037,17 @@ client.on("message", (message) => {
     }
 });
 
-
+client.on('message', message => {
+    if(message.content === "-bot") {
+        const embed = new Discord.RichEmbed()
+        .setColor("#00FFFF")
+        .setDescription(`**Servers**ًںŒگ **__${client.guilds.size}__**
+**Users**ًں‘¥ **__${client.users.size}__**
+**Channels**ًں“ڑ **__${client.channels.size}__** `)
+('**سرعة الاتصال📡**' , `${Date.now() - message.createdTimestamp}` + ' ms')
+               message.channel.sendEmbed(embed);
+           }
+});
 
 
 
