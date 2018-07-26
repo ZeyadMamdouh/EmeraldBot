@@ -29,3 +29,14 @@
     "discord.js": "^11.3.0"
   }
 }
+
+"dependencies": {
+    "discord.js": "^11.3.0",
+    "opusscript": "*",
+    "ytdl-core": "*",
+   "get-youtube-id": "*",
+   "youtube-info": "*",
+  "simple-youtube-api": "*",
+  "queue": "*",
+  "ffmpeg-binaries": "*"
+  }
