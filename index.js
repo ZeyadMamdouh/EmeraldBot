@@ -423,7 +423,6 @@ client.on("message", message => {
 
 
 client.on("message", message => {
-    const prefix = "-"
               
           if(!message.channel.guild) return;
    if(message.author.bot) return;
