@@ -2,6 +2,12 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const devs = ['333140974865874944'];
+const request = require('request');
+ytdl = require("ytdl-core");
+const getYoutubeID = require('get-youtube-id');
+const fetchVideoInfo = require('youtube-info');
+const YouTube = require('simple-youtube-api');
+const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 var prefix = "-"
 const adminprefix = "admin-"
 
