@@ -8569,7 +8569,7 @@ client.on('message', message => {
 
   if (message.content.startsWith( prefix + "sug")) {
   if (!message.channel.guild) return;
- message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل
+      message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل الاداره`)
   let args = message.content.split(" ").slice(1).join(' ');
   client.channels.get("471396001291173890").send(
       "\n" + "**" + "● السيرفر :" + "**" +
