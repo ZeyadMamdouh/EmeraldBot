@@ -7989,7 +7989,7 @@ message.member.removeRole(message.guild.roles.find("name", "100"));
 
 
 client.on('message', message => {
-    if(message.content === "$bot") {
+    if(message.content === "-bot") {
         const embed = new Discord.RichEmbed()
         .setColor("#00FFFF")
   .addField('**الذاكرة المستخدمة 💾**', `${(process.memoryUsage().rss / 1000000).toFixed()}MB`, true)
