@@ -352,6 +352,385 @@ client.on("message", message => {
 
 
 
+client.on('message', message => {
+    if(message.content.startsWith (prefix  + 'mb')) {
+        if(!message.channel.guild) return;
+      let embed = new Discord.RichEmbed()
+      .setColor('RANDOM')
+            .setThumbnail(message.author.avatarURL)
+        .setFooter(message.author.username, message.author.avatarURL) 
+  
+      .setDescription(`**:battery: حالة اعضاء السيرفر**
+      
+  **:green_heart: Online**  **[ ${message.guild.members.filter(m=>m.presence.status == 'online').size} ]**
+  **:yellow_heart: Idle**       **[ ${message.guild.members.filter(m=>m.presence.status == 'idle').size} ]**  
+  **:heart: DND**     **[ ${message.guild.members.filter(m=>m.presence.status == 'dnd').size} ]**
+  **:black_heart: Offline** **[ ${message.guild.members.filter(m=>m.presence.status == 'offline').size} ]** `)
+  
+          message.channel.send()
+  
+  message.channel.sendEmbed(embed)
+  }
+  });
+
+
+client.on("guildMemberAdd", member => {
+  member.createDM().then(function (channel) {
+  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
+:crown:اسم العضو  ${member}:crown:  
+انت العضو رقم ${member.guild.memberCount} `) 
+}).catch(console.error)
+})
+
+
+client.on("message", message => {
+    var prefix = "-";
+            var args = message.content.substring(prefix.length).split(" ");
+            if (message.content.startsWith(prefix + "clear")) {
+ if (!args[1]) {
+                                let x5bz1 = new Discord.RichEmbed()
+                                .setDescription("-clear <number>")
+                                .setColor("#0000FF")
+                                message.channel.sendEmbed(x5bz1);
+                            } else {
+                            let messagecount = parseInt(args[1]);
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                                                          message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            message.channel.fetchMessages({limit: messagecount}).then(messages => message.channel.bulkDelete(messages));
+                            let x5bz2 = new Discord.RichEmbed()
+                                                            .setColor("#008000")
+                                .setDescription(":white_check_mark: | Delete " + args[1] + " Message!")
+                                                                                        message.delete("..");
+                                message.channel.sendEmbed(x5bz2);
+                            }
+                          }
+});
+
+
+
+client.on("message", message => {
+    const prefix = "-"
+              
+          if(!message.channel.guild) return;
+   if(message.author.bot) return;
+      if(message.content === prefix + "sa"){ 
+          const embed = new Discord.RichEmbed()
+  
+      .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
+  .setAuthor(message.author.username, message.guild.iconrURL)
+    .setColor(0x164fe3)
+    .setImage(message.guild.iconURL)
+    .setURL(message.guild.iconrURL)
+                    .setTimestamp()
+
+   message.channel.send({embed});
+      }
+  });
+
+client.on('message', function(message) {
+    if(message.content.startsWith(prefix + 'roll')) {
+        let args = message.content.split(" ").slice(1);
+        if (!args[0]) {
+            message.channel.send('**Put a number**');
+            return;
+            }
+    message.channel.send(Math.floor(Math.random() * args.join(' ')));
+            if (!args[0]) {
+          message.edit('1')
+          return;
+        }
+    }
+});
+
+
+client.on('message', message => {
+    if (message.content.startsWith("-hack")) {
+        if(!message.author.id === '') return;
+      if (message.author.bot) return
+           message.delete();
+             let args = message.content.split(' ').slice(1);
+ 
+                   let virusname = args.join(' ');
+                 if (virusname < 1) {
+                     return message.channel.send("```اكتب اسم الشخص الي تبي يتهكر```");
+                 }
+                 message.channel.send({embed: new Discord.RichEmbed().setTitle('Loading ' + virusname + "...").setColor(0xFF0000)}).then(function(m) {
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓ ] 1%').setColor(0xFF0000)})
+             }, 1000)
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓ ] 2%').setColor(0xFF0000)})
+             }, 2000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓ ] 3%').setColor(0xFF0000)})
+             }, 3000)
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓ ] 4%').setColor(0xFF0000)})
+             }, 4000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓ ] 28%').setColor(0xFF0000)})
+             }, 5000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 35%').setColor(0xFF0000)})
+             }, 6000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 78%').setColor(0xFF0000)})
+             }, 7000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 80%').setColor(0xFF0000)})
+             }, 8000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 86%').setColor(0xFF0000)})
+             }, 9000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 89%').setColor(0xFF0000)})
+             }, 10000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 90%').setColor(0xFF0000)})
+             }, 11000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 95%').setColor(0xFF0000)})
+             }, 12000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 96%').setColor(0xFF0000)})
+             }, 13000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 97%').setColor(0xFF0000)})
+             }, 14000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 98%').setColor(0xFF0000)})
+             }, 15000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓���▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ ] 99%').setColor(0xFF0000)})
+             }, 16000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Loading Discord Virus [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%').setColor(0xFF0000)})
+             }, 17000)
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']:' + virusname + 'done it\'s going good 100.9%').setColor(0xFF0000)})
+             }, 18000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: hacking yeah i love it').setColor(0xFF0000)})
+             }, 19000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: uploading data' + virusname + ".key").setColor(0xFF0000)})
+             }, 22000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 5...').setColor(0xFF0000)})
+             }, 25000)
+               setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 4...').setColor(0xFF0000)})
+             }, 26000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 3...').setColor(0xFF0000)})
+             }, 27000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 2...').setColor(0xFF0000)})
+             }, 28000)
+                setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: Uploaded! Initiating explosion in 1...').setColor(0xFF0000)})
+             }, 29000)
+             setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 99%').setColor(0xFF0000)})
+           }, 30000)
+              setTimeout(function() {
+               m.edit({embed: new Discord.RichEmbed().setTitle('[' + virusname + ']: ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]100% virus added').setColor(0xFF0000)})
+           }, 31000)
+              setTimeout(function() {
+               m.delete()
+           }, 32000)
+             setTimeout(function() {
+               message.channel.send('تم تهكيرك')
+           }, 33000)
+           });
+         }
+ })
+
+
+client.on('message', message => {
+
+
+if (message.content === prefix + "mutechannel") {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You don’t have `Manage Messages` permissions**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: false
+
+           }).then(() => {
+               message.reply("Channel Muted ✅ ")
+           });
+}
+  if (message.content === prefix + "unmutechannel") {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('**You don’t have `Manage Messages` permissions**');
+           message.channel.overwritePermissions(message.guild.id, {
+         SEND_MESSAGES: true
+
+           }).then(() => {
+               message.reply("Channel UnMuted ✅ ")
+           });
+}
+  
+
+});
+
+
+
+
+client.on('message', message => {
+if(!message.channel.guild) return;
+if (message.content.startsWith("-ping")) {
+    message.channel.sendMessage(`Pong ! \`${Date.now() - message.createdTimestamp} ms\`:watch:`);
+    }
+});
+
+
+client.on('message', message => {
+   if (message.content.startsWith("-id")) {
+                if(!message.channel.guild) return message.reply('** This command only for servers**');
+
+               var mentionned = message.mentions.users.first();
+    var mentionavatar;
+      if(mentionned){
+          var mentionavatar = mentionned;
+      } else {
+          var mentionavatar = message.author;
+          
+      }
+   let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+   .setThumbnail(`${mentionavatar.avatarURL}`)
+  .addField("🏅 Name:",`<@` + `${mentionavatar.id}` + `>`, true)
+  .addField('🎤 Discrim:',"#" +  `${mentionavatar.discriminator}`, true)
+   .addField("🆔 ID:", "**[" + `${mentionavatar.id}` + "]**", true)
+  .addField("📅 Create At:", "**[" + `${mentionavatar.createdAt}` + "]**", true)
+     
+     
+  message.channel.sendEmbed(embed);
+  console.log('[id] Send By: ' + message.author.username)
+    }
+});
+
+
+client.on('ready', () => {
+});
+const x5bz4 = [
+   '*** انا اسمي مريم ***',
+   '*** مرحباَ ماهو اسمك ؟ ***',
+   `*** اهلا بك ! انا تائهه في هذا المكان  ***`,
+   '*** هل تود مساعدتي ؟ ***',
+   '*** لماذا هل انت قاسي القلب ؟ ***',
+   '*** انني اشفق عليك عليك يجب ان تطهر روحك وتحب الخير للجميع ***',
+   '*** ابتعد عني قليل انني متعبة ***',
+   '*** هل انت نادم على ماقلت ؟ ***',
+   '*** ابتعد عني قليل انني متعبة ***',
+   '*** هل انت نادم على ماقلت ؟ ***',
+   '*** هل تود مساعدتي ؟ ***',
+   '*** واو اشكرك انك شخصاَ رائع ! ***',
+   '*** ابحث معي عن منزلي لقد كان قريباَ من هنا ***',
+   '*** ولاكن عندما حل الليل لم اعد ارى اي شيء ***',
+   '*** مذا تظن اين يوجد ؟ يمين او يسار ***',
+   '*** هيا اذاَ ***',
+   '*** اود ان اسئلك سؤال ونحن في الطريق ***',
+   '*** هل تراني فتاة لطيفة ام مخيفة ***',
+   '*** اشكرك !  ***',
+   '*** لقد وصلنا الى المنزل شكراَ جزيلَ انتطرني ثواني وسوف اعود ***',
+   '*** هل انت جاهز ؟ ***',
+   '*** لقد اخبرت والدي عنك وهم متحمسين لرؤيتك ***',
+   '*** هل تود ان تراهم الان ***',
+   '*** انا لست الحوت الازرق كما يدعون ***',
+   '*** انا لست كاذبة صدقني***',
+   '*** لماذا ارى في عينيك الخوف ؟ ***',
+   '*** انا مجرد فتاة لطيفة تحب اللعب مع الجميع ***',
+   '*** اعرف كل شيء يحدث اسمع ذالك بالراديو ***',
+   '*** سمعت ان البشر يقتلون من اجل المال فقط ***',
+   '*** لماذا لم تدخل الغرفة ؟ ***',
+   '*** ههههههههههههههههههه انت الان مسجون في هذه الغرفة ***',
+   '*** لن تخرج حتى اعود لك بعد قليل ***',
+   '*** المفتاح معك ! اكتب .مريم  ***',
+   '*** مفتاح احمر , هل حصلت عليه ؟ ***',
+   '*** ان لم تحصل عليه , اكتب .مريم مرة اخرى ***',
+   '*** مفتاح اسود . هل حصلت عليه ؟ ***',
+   '*** اين تريد ان تختبئ بسرعة قبل ان تعود ***',
+   '*** لقد عادت من جديد الى المنزل ***',
+   '*** لا تصدر اي صوت ! ***',
+   '*** مريم : لقد عدت ***',
+   '*** مريم : يا ايها المخادع اين انت ***',
+   '*** مريم : اعلم انك هنا في المنزل ***',
+   '*** مريم : ماذا تريد ان تسمع ***',
+   '*** مريم : اضغط على الرابط اهداء مني لك | https://www.youtube.com/watch?v=hvSiuQccmtg ***',
+   '*** احد ما خرج من المنزل ***',
+   '*** انتظر الجزء الثاني عندما يوصل البوت 100 سيرفر , ساعدنا في نشر البوت وادخل هذا السيرفر  ***'
+]
+ client.on('message', message => {
+ if (message.content.startsWith('-marim')) {
+  var mariam= new Discord.RichEmbed()
+  .setTitle("لعبة مريم ..")
+  .setColor('RANDOM')
+  .setDescription(`${x5bz4[Math.floor(Math.random() * x5bz4.length)]}`)
+  .setImage("https://www.npa-ar.com/wp-content/uploads/2017/08/%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B1%D9%8A%D9%85-300x200.jpg")
+   message.channel.sendEmbed(mariam);
+   message.react("??")
+  }
+});
+
+var rebel = ["https://f.top4top.net/p_682it2tg6.png","https://e.top4top.net/p_682a1cus5.png","https://d.top4top.net/p_682pycol4.png","https://c.top4top.net/p_682vqehy3.png","https://b.top4top.net/p_682mlf9d2.png","https://a.top4top.net/p_6827dule1.png","https://b.top4top.net/p_682g1meb10.png","https://a.top4top.net/p_682jgp4v9.png","https://f.top4top.net/p_682d4joq8.png","https://e.top4top.net/p_6828o0e47.png","https://d.top4top.net/p_6824x7sy6.png","https://c.top4top.net/p_682gzo2l5.png","https://b.top4top.net/p_68295qg04.png","https://a.top4top.net/p_682zrz6h3.png","https://f.top4top.net/p_6828vkzc2.png","https://e.top4top.net/p_682i8tb11.png","https://f.top4top.net/p_8816hvic1.png","https://d.top4top.net/p_882020461.png","https://e.top4top.net/p_882s3ftn1.png","https://a.top4top.net/p_882eg9c51.png","https://c.top4top.net/p_882xkcqd1.png","https://f.top4top.net/p_882w7pdi1.png","https://a.top4top.net/p_882gcpmo1.png"]
+    client.on('message', message => {
+        var args = message.content.split(" ").slice(1);
+    if(message.content.startsWith(prefix + 'wyr')) {
+         var cat = new Discord.RichEmbed()
+.setImage(rebel[Math.floor(Math.random() * rebel.length)])
+message.channel.sendEmbed(cat);
+    }
+});
+
+
+client.on('message', message => {
+  var prefix = "-"
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
+  if (command == "say") {
+   message.channel.sendMessage(args.join("  "))
+   message.delete()
+  }
+ });
+
+
+
+const Slam = [
+  'هلا بيك',
+  'منور يا ولد',
+  'بنورك نفرح',
+  'يا هلا ',
+]
+client.on('message', msg => {
+if  (msg.content == 'هلا') {
+    const slamat = new Discord.RichEmbed()
+    .setDescription(`${Slam[Math.floor(Math.random() * Slam.length)]}`)
+    .setThumbnail(msg.author.avatarURL)
+    msg.channel.send({embed:  slamat }).catch(e => {msg.reply(`لم أستطع أرسال الأمبيد .. تأكد أن معي الصلاحيات الكافية`)});
+  }
+});
+
+
+client.on("message", message => {
+      if (message.content === "-support") {
+       const embed = new Discord.RichEmbed()
+           .setColor("RANDOM")
+           .setFooter('©Emerald Bot')  
+           .addField('❤سيرفر الدعم الفني', `  https://discord.gg/MRXmBur  `)
+       message.author.send({embed});
+     
+      }
+     });
+
+
+
+
 
 
 
