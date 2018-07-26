@@ -2,8 +2,23 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-client.on('ready', () => {
-    client.user.setActivity('https://git.io/d.js-heroku', {type: 'WATCHING'});
+client.on('ready', function(){
+    client.user.setStatus("online");
+    var ms = 100000 ;
+    var setGame = [`-help On ${client.guilds.size} Servers`,`-invite Users ${client.users.size}`,`Emerald Bot ❤ ✯`];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`http://www.twitch.tv/KiNg66S`);
+    }, ms);100000
+
 });
 
 client.on('message', msg => {
