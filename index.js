@@ -9,6 +9,7 @@ const fetchVideoInfo = require('youtube-info');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const fs = require("fs");
+const moment = require('moment');
 var Canvas = require('canvas');
 var jimp = require('jimp');
 var prefix = "-"
@@ -8377,7 +8378,8 @@ client.on("guildMemberAdd", member => {
       const welcomer =  member.guild.channels.find('name', 'welcome');
       //*let welcomer = member.guild.channels.find("name","welcome");
       if(!welcomer) return;
-      if(welcomer) {
+      if(welcomer) 
+    moment.locale('ar-ly');
          var h = member.user;
         let heroo = new Discord.RichEmbed()
         .setColor('RANDOM')
