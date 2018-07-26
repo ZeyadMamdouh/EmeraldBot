@@ -19,7 +19,7 @@ const adminprefix = "admin-"
 client.on('ready', function(){
     client.user.setStatus("online");
     var ms = 100000 ;
-    var setGame = [`-help On ${client.guilds.size} Servers`,`-invite Users ${client.users.size}`,`Emerald Bot ❤ ✯`];
+    var setGame = [`-help On ${client.guilds.size} Servers`,`-inv Users ${client.users.size}`,`Emerald Bot ❤ ✯`];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -8455,6 +8455,24 @@ client.on("guildMemberAdd", member => {
       
     
       });
+
+
+client.on('message', message => {
+   if(message.content.startsWith(prefix + "invites")) {
+    message.guild.fetchInvites().then(invs => {
+      let user = message.mentions.users.first() || message.author
+      let personalInvites = invs.filter(i => i.inviter.id === user.id);
+      let inviteCount = personalInvites.reduce((p, v) => v.uses + p, 0);
+               let mmmmEmbed = new Discord.RichEmbed()
+                         .setAuthor(client.user.username)
+                         .setThumbnail(message.author.avatarURL)
+ .addField(لقد قمت بدعوة :, ${inviteCount})
+           .setFooter(- Requested By: ${message.author.tag});
+           message.channel.send(mmmmEmbed)
+});
+  }
+});
+
 
 
 
