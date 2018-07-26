@@ -8565,6 +8565,27 @@ mentionned.send(` :credit_card: | Transfer Receipt \`\`\`You have received ${arg
 
 
 
+client.on('message', message => {
+
+  if (message.content.startsWith( prefix + "sug")) {
+  if (!message.channel.guild) return;
+  let args = message.content.split(" ").slice(1).join(' ');
+	  message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل الاداره`)
+  client.channels.get("ايدي الروم").send(
+      "\n" + "**" + "● السيرفر :" + "**" +
+      "\n" + "**" + "» " + message.guild.name + "**" +
+      "\n" + "**" + " ● المرسل : " + "**" +
+      "\n" + "**" + "» " + message.author.tag + "**" +
+      "\n" + "**" + " ● الرسالة : " + "**" +
+      "\n" + "**" + args + "**")
+  }
+  });
+
+
+
+
+
+
 
 
 
