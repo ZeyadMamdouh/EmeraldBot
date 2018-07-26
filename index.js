@@ -196,6 +196,21 @@ client.on('message', msg => {
 });
 
 
+client.on('message', message => {
+    if (message.content === "-help") {
+    let embed = new Discord.RichEmbed()
+  .setAuthor(message.author.username)
+  .setFooter(`♪ZeyadChannel♪.🔝#5717`, 'https://images-ext-2.discordapp.net/external/X9SanEG0s7Dtv3krTgy-kod_fj6JRVJ2AG4JryCiiz0/%3Fsize%3D2048/https/cdn.discordapp.com/avatars/375761288518828042/fffa31c797e88cf059dd6db424ff456a.png?width=80&height=80')
+  .setColor("#000000")
+  .addField("Done | تــــم" , ":envelope: | :sleuth_or_spy::skin-tone-3:Check Your DM :white_check_mark:")
+  
+  
+  
+  message.channel.sendEmbed(embed);
+  }
+  });
+
+
 client.on("message", message => {
     if (message.content === "-help") {
      const embed = new Discord.RichEmbed() 
