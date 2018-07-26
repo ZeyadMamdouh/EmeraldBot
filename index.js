@@ -8070,6 +8070,64 @@ client.on('message',  (message) => {
     });
 	  
 
+ const codes = {
+        ' ': '   ',
+        '0': '0⃣',
+        '1': '1⃣',
+        '2': '2⃣',
+        '3': '3⃣',
+        '4': '4⃣',
+        '5': '5⃣',
+        '6': '6⃣',
+        '7': '7⃣',
+        '8': '8⃣',
+        '9': '9⃣',
+        '!': '❕',
+        '?': '❔',
+        '#': '#⃣',
+        '*': '*⃣'
+      };
+      
+      'abcdefghijklmnopqrstuvwxyz'.split('').forEach(c => {
+        codes[c] = codes[c.toUpperCase()] = ` :regional_indicator_${c}:`;
+      });
+      
+      
+      client.on('message' , async message => {
+        if(message.content.startsWith(prefix + "e")) {
+                let args = message.content.split(" ").slice(1);
+        if (args.length < 1) {
+          message.channel.send('You must provide some text to emojify!');
+      }
+      
+      message.channel.send(
+          args.join(' ')
+              .split('')
+              .map(c => codes[c] || c)
+              .join('')
+      );
+      };
+      });
+
+
+client.on('message', message => {
+  var prefix = "-"
+            if (message.content.startsWith(prefix + 'addrole')) {
+                         if(!message.channel.guild) return message.reply('**Commands in the server**');
+                    if (!message.member.hasPermission('MANAGE_ROLES')) return message.reply('⚠ **You do not have permissions**');
+                    let args = message.content.split(" ").slice(1);
+                        message.guild.createRole({
+                            name : args.join(' '),
+                            permissions : [1]
+                        }).then(function(role){
+                    return message.reply('✅ **Added a Role**');
+                            message.addRole(role)
+                        })
+            
+            }
+            });
+
+
 
 
 
