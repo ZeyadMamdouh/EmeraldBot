@@ -8474,7 +8474,7 @@ client.on("guildMemberAdd", member => {
                               ctx.fontSize = '28px';
                               ctx.fillStyle = "#FFFFFF";
                               ctx.textAlign = "center";
-      ctx.fillText(`انت العضو رقم  ${member.guild.memberCount} !! `
+      ctx.fillText(`You Are Num  ${member.guild.memberCount} !! `
                               , 200, 190);
     welcomer.sendFile(canvas.toBuffer())
       
