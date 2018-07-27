@@ -8569,7 +8569,7 @@ client.on('message', message => {
 
   if (message.content.startsWith( prefix + "sug")) {
   if (!message.channel.guild) return;
-      message.channel.send(`تم حفظ اقتراحك الرجاء انتضار الرد من قبل الاداره`)
+      message.channel.send(`تم حفظ اقتراحك الرجاء انتظار الرد من قبل الاداره`)
   let args = message.content.split(" ").slice(1).join(' ');
   client.channels.get("471396001291173890").send(
       "\n" + "**" + "● السيرفر :" + "**" +
@@ -8581,6 +8581,24 @@ client.on('message', message => {
   }
   });
 
+
+
+client.on('message', message => {
+  const port = '25565'
+  if(message.content.startsWith('-mcstats')) {
+ const args = message.content.split(" ").slice(1).join(" ")
+    if (!args) return message.channel.send("** يجب كتابة ايدي السيرفر . **");
+        let embed = new Discord.RichEmbed()
+        .setColor('RANDOM')
+        .setThumbnail(`https://api.minetools.eu/favicon/${args}/25565`)
+        .addField("📜 اسم السيرفر",`${args}`,true)
+        .addField("🌐 بورت السيرفر",`${port}`)
+        .setImage(`http://status.mclive.eu/${args}/${args}/25565/banner.png`)
+        .setFooter(`S Bot.`)
+                .setTimestamp()
+    message.channel.send(embed)      
+}})
+  
 
 
 
