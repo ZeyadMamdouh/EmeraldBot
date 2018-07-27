@@ -13,7 +13,6 @@ const moment = require('moment');
 var Canvas = require('canvas');
 var jimp = require('jimp');
 var prefix = "-"
-const client = new Discord.Client();
 const adminprefix = "admin-"
 
 client.on('ready', function(){
