@@ -81,7 +81,7 @@ if(message.content.startsWith('-bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "Dragon";
+let copy = "Emerald Bot";
 let request = `Requested By ${message.author.username}`;
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
 msg.react('✅')
@@ -99,9 +99,9 @@ var bc = new
 Discord.RichEmbed()
 .setColor('RANDOM')
 .setTitle('Broadcast')
-.addField('Server', message.guild.name)
-.addField('Sender', message.author.username)
-.addField('Message', args)
+.addField('السيرفر', message.guild.name)
+.addField('المرسل', message.author.username)
+.addField('الرسالة', args)
 .setThumbnail(message.author.avatarURL)
 .setFooter(copy, client.user.avatarURL);
 m.send({ embed: bc })
@@ -290,6 +290,8 @@ client.on("message", message => {
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-punch__->** تعطي خويك كف
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__-roles__->** تشوف الرتب
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-mhelp__-> تظهر اوامر الميوزك
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-help__->**تظهر لك هذي القائمة
@@ -354,8 +356,9 @@ client.on("message", message => {
   -=-=-=-=-=-=-=-=-=-=-= -=-=-=-=-=-=-=-=-=-
   **__-role bots <rank>__-> اتعطي للبوتس رانك
   -=-=-=-=-=-=-=-=-=-=-= -=-=-=-=-=-=-=-=-=-
+  **__-addrole__->** لأنشاء رول
+  -=-=-=-=-=-=-=-=-=-=-= -=-=-=-=-=-=-=-=-=-
   **__-clear <Number> __->**حذف الشات بعدد
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-bc__->** برود كاست 
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-`)
@@ -8687,6 +8690,25 @@ message.channel.sendMessage({embed: {
 });
 
 
+
+
+  var AsciiTable = require('ascii-data-table').default
+client.on('message', message =>{
+
+    if(message.content == "-roles"){
+        var 
+        ros=message.guild.roles.size,
+        data = [['Rank', 'RoleName']]
+        for(let i =0;i<ros;i++){
+            if(message.guild.roles.array()[i].id !== message.guild.id){
+         data.push([i,`${message.guild.roles.filter(r => r.position == ros-i).map(r=>r.name)}`])
+        }}
+        let res = AsciiTable.table(data)
+
+        message.channel.send(`**\`\`\`xl\n${res}\`\`\`**`);
+    }
+});
+  
 
 
 
