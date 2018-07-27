@@ -1,4 +1,5 @@
 // Discord.js bot
+const Discord = require('discord.js');
 const { Client, Util } = require('discord.js');
 const client = new Client();
 const YouTube = require('simple-youtube-api');
