@@ -8716,6 +8716,36 @@ message.channel.sendMessage({embed: {
  
 
 
+client.on('message',  (message) => {
+            if(message.content.startsWith('-kiki')) {
+      let user = message.mentions.users.first();
+      if (!user) {
+        /**
+         * The command was ran with invalid parameters.
+         * @fires commandUsage
+         */
+        return message.emit('commandUsage', message, this.help);      }
+    
+      let punches = [
+        'https://cdn.discordapp.com/attachments/470651409495359498/472401690835025940/tenor.gif',
+        'https://cdn.discordapp.com/attachments/470651409495359498/472407626563452938/tenor_1.gif'
+      ];
+    
+      message.channel.send({
+        embed: {
+          description: `KEKE DO YOU LOVE ME :heart:`,
+          image: {
+            url: punches[Math.floor(Math.random() * punches.length)]
+          }
+        }
+      }).catch(e => {
+        client.log.error(e);
+      })
+            }  
+    });
+	  
+
+
 
 
 
