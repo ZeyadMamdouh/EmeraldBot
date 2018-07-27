@@ -51,5 +51,15 @@
     "youtube-info": "^1.2.0",
     "ytdl-core": "^0.20.3",
     "queue": "*"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-aqua": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "aqua",
+    "rules": {
+      "no-console": 0
+    }
   }
 }
