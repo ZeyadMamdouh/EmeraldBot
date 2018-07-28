@@ -811,7 +811,7 @@ client.on("message", message => {
        const embed = new Discord.RichEmbed()
            .setColor("RANDOM")
            .setFooter('©Emerald Bot')  
-           .addField('❤سيرفر الدعم الفني', `  https://discord.gg/MRXmBur  `)
+           .addField('❤سيرفر الدعم الفني', `  https://discord.gg/m6TYNNt  `)
        message.author.send({embed});
      
       }
