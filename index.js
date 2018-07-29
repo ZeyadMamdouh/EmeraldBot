@@ -9,6 +9,7 @@ const queue = new Map();
 const request = require('request');
 const fs = require("fs");
 const moment = require('moment');
+const devs = ['333140974865874944'];
 var Canvas = require('canvas');
 var jimp = require('jimp');
 var prefix = "-"
@@ -8732,8 +8733,7 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
 
 
 
-const devs = ['333140974865874944'];
-const adminprefix = "admin-"
+
 
 client.on('message', message => {
       if (!devs.includes(message.author.id)) return;
