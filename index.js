@@ -8733,6 +8733,24 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
 
 
 
+const devs = ['333140974865874944'];
+const adminprefix = "admin-"
+
+client.on('message', message => {
+      if (!devs.includes(message.author.id)) return;
+  if (message.content.startsWith(adminprefix + 'bcbot')) {
+    if (!devs.includes(message.author.id)) return; 
+let args = message.content.split(' ').slice(1).join(' ');
+
+message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}});
+
+
+
+
 
 
 
