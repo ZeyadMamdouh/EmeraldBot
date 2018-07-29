@@ -6,7 +6,6 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const queue = new Map();
-const devs = ['333140974865874944'];
 const request = require('request');
 const fs = require("fs");
 const moment = require('moment');
