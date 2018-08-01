@@ -318,6 +318,8 @@ client.on("message", message => {
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-color <number>__-** لأختيار الون
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+   **__-invites__->** لمعرفة كم دعيت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-inv__-** لأضافة البوت الي سيرفرك
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-support__-** سيرفر المساعدة
@@ -382,6 +384,10 @@ client.on("message", message => {
   **__-ban__->**باند
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-mute__->**ميوت
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__-hchannel__->** لأخفاء الشانل
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  **__-schannel__->** لأظهار الشانل
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
   **__-unmute__->**فك ميوت
   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -8940,6 +8946,40 @@ client.on("message", message => {
 			return	message.reply('**:white_check_mark: [ '+role1.name+' ] تم اعطاء البشريين رتبة**');
 		} 
 	} 
+});
+
+
+
+
+
+
+client.on('ready', () => {
+	console.log('I am ready!'); 
+  });
+
+client.on('message', message => {
+var prefix = "-";
+      if(message.content === prefix + "hchannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply('You Dont Have Perms :x:');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: false
+ })
+              message.channel.send('Channel Hided Successfully ! :white_check_mark:  ')
+ }
+});
+
+
+client.on('message', message => {
+var prefix = "-";
+      if(message.content === prefix + "schannel") {
+      if(!message.channel.guild) return;
+      if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':x:');
+             message.channel.overwritePermissions(message.guild.id, {
+             READ_MESSAGES: true
+ })
+              message.channel.send('Done  ')
+ }
 });
 
 
