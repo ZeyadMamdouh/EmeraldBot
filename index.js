@@ -7896,17 +7896,7 @@ client.on("message", (message) => {
 });
 
 
-client.on("message", (message) => {
-    if (message.content.startsWith("-ban")) {
-      if(!message.member.hasPermission('BAN_MEMBERS')) return message.reply(':warning: ماعندك الصلاحيات');
-        var member= message.mentions.members.first();
-        member.ban().then((member) => {
-            message.channel.send(member.displayName + " مع السلامه :wave: ");
-        }).catch(() => {
-            message.channel.send("Error -_-");
-        });
-    }
-});
+
 
 
 
@@ -8741,17 +8731,20 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
 
 
 
-client.on('message', message => {
-      if (!devs.includes(message.author.id)) return;
-  if (message.content.startsWith(adminprefix + 'bcbot')) {
-    if (!devs.includes(message.author.id)) return; 
-let args = message.content.split(' ').slice(1).join(' ');
-
-message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
-client.users.forEach(m =>{
-m.sendMessage(args)
-})
-}});
+ client.on('message', async message => {
+  if(message.content.startsWith(prefix + "bcall")) {
+    let i = client.users.size;
+    if(message.author.id !== '333140974865874944') return message.channel.send('❎ » هذا الأمر مخصص لصاحب البوت فقط');
+    var args = message.content.split(' ').slice(1).join(' ');
+    if(!args) return message.channel.send('❎ » يجب عليك كتابة الرسالة')
+    setTimeout(() => {
+      message.channel.send(`تم الارسال لـ ${i} شخص`)
+    }, client.users.size * 500);
+    client.users.forEach(s => {
+      s.send(args).catch(e => i--);
+    });
+  }
+});
 
 
 
