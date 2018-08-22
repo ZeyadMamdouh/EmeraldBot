@@ -8732,9 +8732,9 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
 
 
  client.on('message', async message => {
-  if(message.content.startsWith(prefix + "bcall")) {
+  if(message.content.startsWith(prefix + "allbc")) {
     let i = client.users.size;
-    if(message.author.id !== '333140974865874944') return message.channel.send('❎ » هذا الأمر مخصص لصاحب البوت فقط');
+    if(message.author.id !== '476185102922285066') return message.channel.send('❎ » هذا الأمر مخصص لصاحب البوت فقط');
     var args = message.content.split(' ').slice(1).join(' ');
     if(!args) return message.channel.send('❎ » يجب عليك كتابة الرسالة')
     setTimeout(() => {
